@@ -18,7 +18,8 @@
   "homepage": "https://github.com/rajghub/ind-css-cleaner#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "request": "^2.87.0"
   },
   "engines": {
     "node": "9.8.0",
