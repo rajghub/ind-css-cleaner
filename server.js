@@ -17,9 +17,6 @@ app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
 app.use(express.static(__dirname + '/public'));
 
-
-
-
 app.post('/test', function(req, res){
 	//console.log('body: ' + req.body.name);
 	var mergeHTML = [];
@@ -47,6 +44,6 @@ app.post('/test', function(req, res){
 	
 });
 
-app.listen(5555, function() {
-    console.log("ready")
-})
+app.listen(process.env.PORT || 4000);
+module.exports = {app}
+
