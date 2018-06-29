@@ -1,0 +1,27 @@
+{
+  "name": "ind-css-cleaner",
+  "version": "1.0.0",
+  "description": "css cleaner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajghub/ind-css-cleaner.git"
+  },
+  "author": "Rajesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajghub/ind-css-cleaner/issues"
+  },
+  "homepage": "https://github.com/rajghub/ind-css-cleaner#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+    "engines"{
+
+"node": "9.8.0",
+    "npm": "5.7.1"
+}
+}
