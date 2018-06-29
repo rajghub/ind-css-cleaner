@@ -1,0 +1,69 @@
+
+<html>
+	<head>
+		<title>jsonp test</title>
+		<style>
+		
+			textarea{width:700px;height:300px;}
+		</style>
+		
+		<script src="http://code.jquery.com/jquery-1.6.2.min.js"></script>		
+		<script type="text/javascript">
+            $(function(){	
+			
+			
+			//input value
+			
+			
+			
+
+				
+                $('#select_link').click(function(e){
+                    e.preventDefault();
+					
+					var arrdata = [];
+					
+					
+					var myarr = $("#urlinput").val().replace(new RegExp("http", 'g'),",http");
+					myarr.split(",")
+					
+					
+				
+					myarr.split(",").forEach(function(url){
+						if(url !== "")
+						arrdata.push(url)
+					})
+					
+					
+					
+
+					var dataA = {};
+					dataA.name = arrdata;
+					
+					
+					$.ajax({
+						type: 'POST',
+						data: JSON.stringify(dataA),
+				        contentType: 'application/json',
+                        url: '/test',						
+                        success: function(data) {
+                           // console.log('success');
+                            console.log(data.name.toString());
+							$("#name").text(data.name.toString())
+                        }
+                    });
+
+                });				
+            });
+        </script>
+    </head>
+    <body>
+	<div>Input:-</div>
+	<textarea id="urlinput"></textarea>
+	
+        <div>Output</div>
+        <textarea id="name"></textarea>
+       <button id="select_link">Submit</button>
+         <h3 id="output"></h3>
+    </body>
+</html>
