@@ -16,9 +16,19 @@
     margin-top: 20px;
     margin-left: 270px;
 	}
+	
+	.vid_car{    position: absolute;
+    top: 30%;
+    right: 30%;}
+	
+	
+	.vid_car input{     width: 20px; height: 20px;}
+	.vid_car span{ font-size:30px;}
 		</style>
 		
 		<script src="js/jquery-1.6.2.min.js"></script>		
+		<script src="js/videocode.js"></script>		
+		
 		<script type="text/javascript">
 	
             $(function(){	
@@ -64,8 +74,19 @@
                            reqclassArr.forEach(function(clas){
 								classDiv.addClass(clas);
 						   })
+						   var vidcoderef = "";
+						   var carouselCoderef = "";
 						   
-							$("#name").text(data.name.toString()+$(classDiv)[0].outerHTML)
+							if($("#vidCode").prop('checked') == true){
+								vidcoderef  = custObj.vidcode;
+							}
+							
+							if($("#carouselCode").prop('checked') == true){
+								carouselCoderef = custObj.carouselcode;
+							}
+						   
+						   
+							$("#name").text(data.name.toString()+$(classDiv)[0].outerHTML + carouselCoderef + vidcoderef)
 							
                         }
                     });
@@ -87,5 +108,13 @@
 		<div>Required Classes:-</div>
 		<textarea id="reqClasses"></textarea>
 		</div>
+		
+		
+		<div class="vid_car">
+			<input type="checkbox" id="vidCode"><span>Video</span> </br>
+			<input type="checkbox"  id="carouselCode"><span>Carousel</span>
+			
+		</div>
+		
     </body>
 </html>
