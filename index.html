@@ -4,37 +4,21 @@
 		<style>
 		
 			textarea{width:700px;height:300px;}
-			.reqclass{    position: absolute;
-    top: 0px;
-    right: 20%;
-    }
-	.reqclass textarea{width: 280px;
-    height: 130px;}
-	#select_link{
-	    width: 120px;
-    height: 50px;
-    margin-top: 20px;
-    margin-left: 270px;
-	}
 		</style>
 		
 		<script src="js/jquery-1.6.2.min.js"></script>		
 		<script type="text/javascript">
-	
             $(function(){	
-
+			
+			
+			//input value
+			
+		
 				
                 $('#select_link').click(function(e){
                     e.preventDefault();
 					
 					var arrdata = [];
-					
-					if($("#urlinput").val() == ""){
-					alert("Please provide URL in Input field")
-						return;
-					}
-					
-					reqclassArr = $("#reqClasses").val().split("\n");
 					
 					
 					var myarr = $("#urlinput").val().replace(new RegExp("http", 'g'),",http");
@@ -47,7 +31,8 @@
 						arrdata.push(url)
 					})
 					
-
+					
+					
 
 					var dataA = {};
 					dataA.name = arrdata;
@@ -59,14 +44,9 @@
 				        contentType: 'application/json',
                         url: '/test',						
                         success: function(data) {
-						
-						   var classDiv = $("div"); 
-                           reqclassArr.forEach(function(clas){
-								classDiv.addClass(clas);
-						   })
-						   
-							$("#name").text(data.name.toString()+$(classDiv)[0].outerHTML)
-							
+                           // console.log('success');
+                            console.log(data.name.toString());
+							$("#name").text(data.name.toString())
                         }
                     });
 
@@ -78,14 +58,9 @@
 	<div>Input:-</div>
 	<textarea id="urlinput"></textarea>
 	
-        <div>Output:-</div>
-        <textarea id="name"></textarea></br>
-		<button id="select_link">Submit</button>
-        <h3 id="output"></h3>
-		
-		<div class="reqclass">
-		<div>Required Classes:-</div>
-		<textarea id="reqClasses"></textarea>
-		</div>
+        <div>Output</div>
+        <textarea id="name"></textarea>
+       <button id="select_link">Submit</button>
+         <h3 id="output"></h3>
     </body>
 </html>
